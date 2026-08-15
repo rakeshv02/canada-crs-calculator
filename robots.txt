@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://canada-crs-calculator.tabutility.com/sitemap.xml
