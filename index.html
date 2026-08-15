@@ -335,7 +335,10 @@ function calc(){
   var C = Math.min(100, eduT + fxT + certT);
   // Additional
   var canstudy=+v('canstudy');
-  var D = (+v('pnp')) + (+v('sib')) + (+v('french')) + (canstudy===1?15:(canstudy===2?30:0));
+  // French bonus must match the entered English (first-language) CLBs: +50 needs CLB 5+ in all, else max +25
+  var fr=+v('french');
+  if (fr===50 && m<5) fr=25;
+  var D = (+v('pnp')) + (+v('sib')) + fr + (canstudy===1?15:(canstudy===2?30:0));
   D = Math.min(600, D);
   var total = A + B + C + D;
   document.getElementById('total').textContent = total;
